@@ -61,31 +61,29 @@ def isMutant(adn):
     for fila in matriz:
         print(fila)
     secuencias = 0
-    if diagonalesHaciaIzquierda(matriz):
-        secuencias = secuencias + 1
-    if diagonalesHaciaDerecha(matriz):
-        secuencias = secuencias + 1
-    if recorrerFilas(matriz):
-        secuencias = secuencias + 1
-    if recorrerColumnas(matriz):
-        secuencias = secuencias + 1
+    secuencias = secuencias + diagonalesHaciaIzquierda(matriz)
+    secuencias = secuencias + diagonalesHaciaDerecha(matriz)
+    secuencias = secuencias +recorrerFilas(matriz)
+    secuencias = secuencias +recorrerColumnas(matriz)  
     if secuencias >=2:
         return True
     else:
         return False
 #funcion que nos dice si un elemento se repite mas de 4 veces 
 def  CuatroConsecutivos(lista):
+    contador = 0 
     for i in range(len(lista) - 3):
         if lista[i] == lista[i + 1] == lista[i + 2] == lista[i + 3]:
-            return True
-    return False
+            contador = contador + 1 
+    return contador
 
 
 
 #codigo principal
 
-adn= "ATGCGA,CAGTGC,TTTTAT,AGACGG,CCCCTA,TCACTG"
-
+#adn= "ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG"
+#caso falso 
+adn = "ATGCGA,CAGTGC,TTATGT,AGAACA,CCCTTA,TCACTG"
 
 if isMutant(adn):
     print("El ADN ingresado ES MUTANTE")

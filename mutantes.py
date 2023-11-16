@@ -79,8 +79,7 @@ def  CuatroConsecutivos(lista):
 
 
 #codigo principal
-#ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG
-#TTGCGA,AAGTGC,TTATTT,AGATGG,GCGTCA,TCACTG
+
 salida = False
 while(salida == False):
     adn = str(input("ingrese una matriz que contenga un ADN \n(separando las filas con coma ',')    :"))

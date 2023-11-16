@@ -54,12 +54,11 @@ def recorrerColumnas(matriz):
 
 # funcion que detecta si es mutante  
 
-def isMutant(adn):
-    
+def isMutant(cadena):
+    adn =cadena.upper()
     filas = adn.split(",")
     matriz = [list(fila) for fila in filas]
-    for fila in matriz:
-        print(fila)
+    
     secuencias = 0
     secuencias = secuencias + diagonalesHaciaIzquierda(matriz)
     secuencias = secuencias + diagonalesHaciaDerecha(matriz)
@@ -80,12 +79,27 @@ def  CuatroConsecutivos(lista):
 
 
 #codigo principal
-
-#adn= "ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG"
-#caso falso 
-adn = "ATGCGA,CAGTGC,TTATGT,AGAACA,CCCTTA,TCACTG"
-
-if isMutant(adn):
-    print("El ADN ingresado ES MUTANTE")
-else:
-    print("El ADN ingresado NO es MUTANTE")
+#ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG
+#TTGCGA,AAGTGC,TTATTT,AGATGG,GCGTCA,TCACTG
+salida = False
+while(salida == False):
+    adn = str(input("ingrese una matriz que contenga un ADN \n(separando las filas con coma ',')    :"))
+    if isMutant(adn):
+        print("El ADN ingresado ES MUTANTE")
+    else:
+        print("El ADN ingresado NO es MUTANTE")
+    print()
+    valida = False
+    while(valida == False):
+        ingreso =input("Si desea ingresar otro ADN Presione (1) \nPara salir presione(2): ")
+        print()
+        if ingreso == "1":
+            salida = False
+            valida = True
+        elif ingreso == "2":
+            salida = True
+            valida = True
+        else:
+            print("ERROR: Ingrese un valor valido(1 o 2)")
+            print("-------------------------------------")
+            valida = False
